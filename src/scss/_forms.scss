@@ -1,0 +1,51 @@
+.form {
+    &__group {
+        // border: 1px solid #f00;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        @media screen and (min-width: 600px) {
+            align-items: center;
+            flex-direction: row;
+        }
+    } // group
+    &__label {
+        @media screen and (min-width: 600px) {
+            flex-basis: 25%;
+            padding-right: 20px;
+            text-align: right;
+            // width: 200px;
+        }
+        &__required-field {
+            position: relative;
+            &__text {
+                display: inline-block;
+                text-align: left;
+                text-indent: -999em;
+                &:after {
+                    content: "*";
+                    left: -2px;
+                    position: absolute;
+                    text-indent: 0;
+                    top: 0;
+                }
+            }
+        } // required-field
+    } // label
+
+    &__input-wrapper {
+        // padding: 3px 0;
+        @media screen and (min-width: 600px) {
+            flex-basis: 60%;
+        }
+        @media screen and (min-width: 768px) {
+            flex-basis: 50%;
+        }
+    }
+
+    &__input {
+        &--text {
+            width: 99%;
+        }
+    } // input
+}
