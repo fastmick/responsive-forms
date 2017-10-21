@@ -1,51 +1,69 @@
 .form {
+    max-width: 980px;
+    border: 1px solid #000;
+    fieldset {
+        border: none;
+        padding-top: 30px;
+    }
     &__group {
-        // border: 1px solid #f00;
         display: flex;
         flex-direction: column;
-        margin-bottom: 10px;
-        @media screen and (min-width: 600px) {
-            align-items: center;
-            flex-direction: row;
-        }
-    } // group
+        margin-bottom: 32px;
+        position: relative;
+    }
+    &__input-wrapper {
+        display: flex;
+        flex: 1;
+    }
     &__label {
-        @media screen and (min-width: 600px) {
-            flex-basis: 25%;
-            padding-right: 20px;
-            text-align: right;
-            // width: 200px;
-        }
-        &__required-field {
+        display: none; 
+        font-size: 14px;
+        position: absolute;
+        top: -23px;
+        left: 0;
+        padding: 5px;
+        width: 100%;
+        
+
+
+    }
+    .show-label {
+        // display: block;
+        background: #efefef;
+        color: #f00;
+        span.ok {
             position: relative;
-            &__text {
-                display: inline-block;
-                text-align: left;
-                text-indent: -999em;
-                &:after {
-                    content: "*";
-                    left: -2px;
-                    position: absolute;
-                    text-indent: 0;
-                    top: 0;
+            &:after {
+                content: 'ok';
+                position: absolute;
+                right: -30px;
+            }
+        }
+       
+    }
+    .active-input {
+        background: #efefef;
+        border-color: #f00 !important;
+    }
+    &__input {
+        outline: 0;
+        .form__input-wrapper & {
+            &--text {
+                border: 0 none;
+                border-bottom: 1px solid #999;
+                padding: 5px;
+                width: 100%;
+
+                &:valid {
+                    border-color: transparent;
                 }
             }
-        } // required-field
-    } // label
-
-    &__input-wrapper {
-        // padding: 3px 0;
-        @media screen and (min-width: 600px) {
-            flex-basis: 60%;
-        }
-        @media screen and (min-width: 768px) {
-            flex-basis: 50%;
         }
     }
-
-    &__input {
-        &--text {
-            width: 99%;
-        }
-    } // input
+    &__hint-text {
+        display: none;
+        font-size: 12px;
+        font-style: normal;
+        padding-left: 20px;
+    }
 }
