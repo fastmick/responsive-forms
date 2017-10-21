@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>responsive forms :: create account</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -35,7 +37,7 @@
                         <span>Vorname eingeben</span>
                     </label>
                     <div class="form__input-wrapper">
-                        <input class="form__input form__input--text" type="text" placeholder="Vorname eingeben" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vorname eingeben'"
+                        <input class="form__input form__input--text" type="text" name="vorname" placeholder="Vorname eingeben" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vorname eingeben'"
                             required>
                     </div>
                     <em class="form__hint-text">Bitte wählen Sie ein Passwort mit mindestens 8 Zeichen.</em>
@@ -102,7 +104,7 @@
                     // console.log('invalidField in for (jquery): '+invalidFields[ i ]);
                     var parentTag = $(invalidFields[i]).parent();
                     var errorMessage = invalidFields[i].validationMessage;
-                    parentTag.append("<div class='error-message'>" + errorMessage + "</div>");
+                    parentTag.append("<div class='error-message bubble with-border bubble__arrow-top bubble__arrow-pos-x-12'><i class='fa fa-exclamation-triangle' aria-hidden='true'></i>" + errorMessage + "</div>");
                 }
 
                 if (invalidFields.length > 0) {
@@ -171,22 +173,44 @@
 
 
 
-        // var nachname = document.querySelector('input[name="nachname"]');
-        // nachname.setCustomValidity('Bitte geben Sie Ihren Nachnamen ein!');
+        var nachname = document.querySelector('input[name="nachname"]');
+        nachname.setCustomValidity('Bitte geben Sie Ihren Nachnamen ein!');
 
-        // nachname.addEventListener('input', function () {
-        //     // Note: if (this.checkValidity()) won't work
-        //     // as setCustomValidity('with a message') will set
-        //     // the field as invalid.
-        //     if (this.value.trim() === '') {
-        //         this.setCustomValidity('Bitte geben Sie Ihren Nachnamen ein!');
-        //     }
-        //     else {
-        //         this.setCustomValidity('');
+        nachname.addEventListener('input', function () {
+            // Note: if (this.checkValidity()) won't work
+            // as setCustomValidity('with a message') will set
+            // the field as invalid.
+            if (this.value.trim() === '') {
+                this.setCustomValidity('Bitte geben Sie Ihren Nachnamen ein!');
+            }
+            else {
+                this.setCustomValidity('');
+            }
+        }, false);
+
+        // nachname.addEventListener('invalid', function () {
+        //     if (this.value.trim() !== '') {
+        //         this.setCustomValidity("'" + this.value + "' is not a valid name bro!");
         //     }
         // }, false);
 
-        // nachname.addEventListener('invalid', function () {
+
+        var vorname = document.querySelector('input[name="vorname"]');
+        vorname.setCustomValidity('Bitte geben Sie Ihren Vornamen ein!');
+
+        vorname.addEventListener('input', function () {
+            // Note: if (this.checkValidity()) won't work
+            // as setCustomValidity('with a message') will set
+            // the field as invalid.
+            if (this.value.trim() === '') {
+                this.setCustomValidity('Bitte geben Sie Ihren Vornamen ein!');
+            }
+            else {
+                this.setCustomValidity('');
+            }
+        }, false);
+
+        // vorname.addEventListener('invalid', function () {
         //     if (this.value.trim() !== '') {
         //         this.setCustomValidity("'" + this.value + "' is not a valid name bro!");
         //     }

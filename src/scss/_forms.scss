@@ -45,6 +45,14 @@
         background: #efefef;
         border-color: #f00 !important;
     }
+
+    .error-message {
+        font-size: .875rem;
+
+        .fa {
+            padding-right: 5px;
+        }
+    }
     &__input {
         outline: 0;
         .form__input-wrapper & {
