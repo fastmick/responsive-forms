@@ -1,0 +1,177 @@
+// ##################################################
+// source -> https://codepen.io/fastmick/pen/RWMoRz?editors=1000
+
+// change values to customize your bubble
+// arrow sizes
+$arrow-size: 8px;
+$bg-color: #fff;
+$text-color: #f00;
+
+// border sizes - optional
+$border-color-bubble: #666;
+$border-width-bubble: 1px;
+
+// bubble styles
+$bubble-border-radius: 0;
+$bubble-padding: 5px 10px;
+$bubble-margin: 10px 0;
+
+// arrow position x-axis
+$position-arrow-x-axis: 50%;
+
+// arrow position y-axis
+$position-arrow-y-axis: 50%;
+
+// ##################################################
+
+// don't edit variables and rules below
+$position-arrow: -($arrow-size * 2);
+$position-arrow-border: ($position-arrow - ($border-width-bubble * 2));
+$margin-arrow-border: -($arrow-size + $border-width-bubble);
+$margin-top-arrow-border: -($arrow-size + $border-width-bubble);
+
+
+
+// rules for positioning the arrow on x-axis/y-axis
+// default position: 50%
+// set class on html-tag e.g. for 65% -> classname: bubble__arrow-pos-x-65
+@for $i from 1 through 100 {  
+  
+  .bubble__arrow-pos-x-#{$i} {
+    &:before,
+    &:after {
+      left: ($i * 1%) !important;
+    }
+  }
+
+  .bubble__arrow-pos-y-#{$i} {
+    &:before,
+    &:after {
+      top: ($i * 1%) !important;
+    }
+  }
+} 
+
+// rules for bubble-padding
+// default padding: 20px
+// set class on html-tag e.g. for 30 -> classname: bubble--padding-30
+@for $i from 1 through 100 {  
+  .bubble--padding-#{$i} {
+    padding: ($i * 1px) !important;    
+  }
+} 
+
+
+
+
+
+.wrapper {
+  margin: 30px;
+}
+
+.with-border {
+  border: $border-width-bubble solid $border-color-bubble;
+}
+
+.bubble {
+  background: $bg-color;
+  border-radius: $bubble-border-radius;
+  color: $text-color;
+  display: inline-block;
+  margin: $bubble-margin;
+  padding: $bubble-padding;
+  position: relative;
+
+  &:before,
+  &:after  {
+    height: 0;
+    border: $arrow-size solid transparent;
+    content: "";
+    position: absolute;
+    width: 0;
+    z-index: 5;
+  }
+
+  &:after  {
+    z-index: 4;
+  }
+  
+  
+
+  // arrow top/bottom
+  &__arrow-top,
+  &__arrow-bottom {
+    &:before,
+    &:after {
+      left: $position-arrow-x-axis;
+      margin-left: -$arrow-size;
+    }
+  }
+
+  &__arrow-top {
+    &:before {
+      border-bottom-color: $bg-color;
+      top: $position-arrow;
+    }
+
+    &.with-border:after {
+      border-bottom-color: $border-color-bubble;
+      border-width: $arrow-size + $border-width-bubble;
+      margin-left: $margin-arrow-border;
+      top: $position-arrow-border;
+    }
+  }
+
+  &__arrow-bottom {
+    &:before {
+      border-top-color: $bg-color;
+      bottom: $position-arrow;
+    }
+
+    &.with-border:after {
+      border-top-color: $border-color-bubble;
+      border-width: $arrow-size + $border-width-bubble;
+      margin-left: $margin-arrow-border;
+      bottom: $position-arrow-border;
+    }
+  }
+  
+  // arrow right/left
+  &__arrow-right,
+  &__arrow-left {
+    &:before,
+    &:after {
+      top: $position-arrow-y-axis;
+      margin-top: -$arrow-size;
+    }
+  }
+
+  &__arrow-right {
+    &:before {
+      border-left-color: $bg-color;
+      right: $position-arrow;
+    }
+
+    &.with-border:after {
+      border-left-color: $border-color-bubble;
+      border-width: $arrow-size + $border-width-bubble;
+      margin-top: $margin-arrow-border;
+      right: $position-arrow-border;
+    }
+  }
+
+  &__arrow-left {
+    &:before {
+      border-right-color: $bg-color;
+      left: $position-arrow;
+    }
+    
+    &.with-border:after {
+      border-right-color: $border-color-bubble;
+      border-width: $arrow-size + $border-width-bubble;
+      margin-top: $margin-arrow-border;
+      left: $position-arrow-border;
+    }
+
+  }
+}
