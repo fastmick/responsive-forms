@@ -15,11 +15,6 @@
   position: relative;
 }
 
-.form__input-wrapper {
-  display: flex;
-  flex: 1;
-}
-
 .form__label {
   display: none;
   font-size: 14px;
