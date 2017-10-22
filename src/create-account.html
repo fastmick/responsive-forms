@@ -26,8 +26,7 @@
                         <span>Nachname eingeben</span>
                     </label>
                     <div class="form__input-wrapper">
-                        <input class="form__input form__input--text" type="text" name="nachname" placeholder="Nachname eingeben" onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Nachname eingeben'" required>
+                        <input class="form__input form__input--text" type="text" name="nachname" placeholder="Nachname eingeben" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nachname eingeben'" required>
                     </div>
                     <em class="form__hint-text">Bitte wählen Sie ein Passwort mit mindestens 8 Zeichen.</em>
                 </div>
@@ -37,8 +36,7 @@
                         <span>Vorname eingeben</span>
                     </label>
                     <div class="form__input-wrapper">
-                        <input class="form__input form__input--text" type="text" name="vorname" placeholder="Vorname eingeben" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vorname eingeben'"
-                            required>
+                        <input class="form__input form__input--text" type="text" name="vorname" placeholder="Vorname eingeben" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vorname eingeben'" required>
                     </div>
                     <em class="form__hint-text">Bitte wählen Sie ein Passwort mit mindestens 8 Zeichen.</em>
                 </div>
@@ -55,54 +53,21 @@
     </div>
 
     <script>
-
-
-
-        
-
-
-
-
         function replaceValidationUI(form) {
             // Suppress the default bubbles
-            form.addEventListener("invalid", function (event) {
+            form.addEventListener("invalid", function(event) {
                 event.preventDefault();
             }, true);
 
             // Support Safari, iOS Safari, and the Android browser—each of which do not prevent
             // form submissions by default
-            form.addEventListener("submit", function (event) {
+            form.addEventListener("submit", function(event) {
                 if (!this.checkValidity()) {
                     event.preventDefault();
                 }
             });
 
-            // var submitButton = form.querySelector( "button:not([type=button]), input[type=submit]" );
-            // submitButton.addEventListener( "click", function( event ) {
-            //     var invalidFields = form.querySelectorAll( ":invalid" ),
-            //         errorMessages = form.querySelectorAll( ".error-message" ),
-            //         parent;
-            //   	console.log('invalidFields: '+invalidFields.length);
-            //     console.log('errorMessages: '+errorMessages.length);
 
-            //   	// Remove any existing messages
-            //     for ( var i = 0; i < errorMessages.length; i++ ) {
-            //         errorMessages[ i ].parentNode.removeChild( errorMessages[ i ] );
-            //     }
-
-
-            //     for ( var i = 0; i < invalidFields.length; i++ ) {
-            //         parent = invalidFields[ i ].parentNode;
-            //       	parent.insertAdjacentHTML( "beforeend", "<div class='error-message'>" + 
-            //             invalidFields[ i ].validationMessage +
-            //             "</div>" );
-            //     }
-
-            //     // If there are errors, give focus to the first invalid field
-            //     if ( invalidFields.length > 0 ) {
-            //         invalidFields[ 0 ].focus();
-            //     }
-            // });
         }
 
         // Replace the validation UI for all forms
@@ -120,14 +85,13 @@
         var nachname = document.querySelector('input[name="nachname"]');
         nachname.setCustomValidity('Bitte geben Sie Ihren Nachnamen ein!');
 
-        nachname.addEventListener('input', function () {
+        nachname.addEventListener('input', function() {
             // Note: if (this.checkValidity()) won't work
             // as setCustomValidity('with a message') will set
             // the field as invalid.
             if (this.value.trim() === '') {
                 this.setCustomValidity('Bitte geben Sie Ihren Nachnamen ein!');
-            }
-            else {
+            } else {
                 this.setCustomValidity('');
             }
         }, false);
@@ -142,14 +106,13 @@
         var vorname = document.querySelector('input[name="vorname"]');
         vorname.setCustomValidity('Bitte geben Sie Ihren Vornamen ein!');
 
-        vorname.addEventListener('input', function () {
+        vorname.addEventListener('input', function() {
             // Note: if (this.checkValidity()) won't work
             // as setCustomValidity('with a message') will set
             // the field as invalid.
             if (this.value.trim() === '') {
                 this.setCustomValidity('Bitte geben Sie Ihren Vornamen ein!');
-            }
-            else {
+            } else {
                 this.setCustomValidity('');
             }
         }, false);
@@ -164,8 +127,8 @@
         // function( event ) {
         //     event.preventDefault();
         // });
-
     </script>
+    <script src="js/browser-detection.js"></script>
     <script src="js/label.js"></script>
     <script src="js/error-messages.js"></script>
 
