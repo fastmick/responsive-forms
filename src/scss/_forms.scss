@@ -1,3 +1,8 @@
+// $_base-font-size: 16; // value in px
+// @mixin font-size($size, $base: $_base-font-size) {
+//     font-size: $size + px;
+//     font-size: ($size / $base) * 1rem;
+// }
 .form {
     max-width: 980px;
     border: 1px solid #000;
@@ -8,7 +13,7 @@
     &__group {
         display: flex;
         flex-direction: column;
-        margin-bottom: 32px;
+        margin-bottom: 37px;
         position: relative;
     }
     &__input-wrapper {
@@ -16,16 +21,14 @@
         // flex: 1;
     }
     &__label {
-        display: none; 
-        font-size: 14px;
+        @include font-size(18);
+        display: none;
+        font-weight: bold;
         position: absolute;
-        top: -23px;
+        top: -28px;
         left: 0;
         padding: 5px;
         width: 100%;
-        
-
-
     }
     .show-label {
         // display: block;
@@ -34,21 +37,20 @@
         span.ok {
             position: relative;
             &:after {
-                content: 'ok';
+                content: "ok";
                 position: absolute;
                 right: -30px;
             }
         }
-       
     }
     .active-input {
         background: #efefef;
         border-color: #f00 !important;
     }
-
     .error-message {
-        font-size: .875rem;
-
+        @include font-size(12);
+        position: absolute;
+        z-index: 10;
         .fa {
             padding-right: 5px;
         }
@@ -61,7 +63,6 @@
                 border-bottom: 1px solid #999;
                 padding: 5px;
                 width: 100%;
-
                 &:valid {
                     border-color: transparent;
                 }
