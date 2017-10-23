@@ -1300,15 +1300,17 @@
 .form__group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 32px;
+  margin-bottom: 37px;
   position: relative;
 }
 
 .form__label {
+  font-size: 18px;
+  font-size: 1.125rem;
   display: none;
-  font-size: 14px;
+  font-weight: bold;
   position: absolute;
-  top: -23px;
+  top: -28px;
   left: 0;
   padding: 5px;
   width: 100%;
@@ -1324,7 +1326,7 @@
 }
 
 .form .show-label span.ok:after {
-  content: 'ok';
+  content: "ok";
   position: absolute;
   right: -30px;
 }
@@ -1335,7 +1337,10 @@
 }
 
 .form .error-message {
-  font-size: .875rem;
+  font-size: 12px;
+  font-size: 0.75rem;
+  position: absolute;
+  z-index: 10;
 }
 
 .form .error-message .fa {
