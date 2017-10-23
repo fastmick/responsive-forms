@@ -50,4 +50,39 @@
         //     console.log('form errors: ' + invalidFields.length);
         // }
     });
+
+
+    var nachname = document.querySelector('input[name="nachname"]');
+    var vorname = document.querySelector('input[name="vorname"]');
+
+    nachname.setCustomValidity('Bitte geben Sie Ihren Nachnamen ein!');
+    nachname.addEventListener('input', function() {
+        // Note: if (this.checkValidity()) won't work
+        // as setCustomValidity('with a message') will set
+        // the field as invalid.
+        if (this.value.trim() === '') {
+            this.setCustomValidity('Bitte geben Sie Ihren Nachnamen ein!');
+        } else {
+            this.setCustomValidity('');
+        }
+    }, false);
+
+    // nachname.addEventListener('invalid', function () {
+    //     if (this.value.trim() !== '') {
+    //         this.setCustomValidity("'" + this.value + "' ist kein valider Name!");
+    //     }
+    // }, false);
+
+
+
+    vorname.setCustomValidity('Bitte geben Sie Ihren Vornamen ein!');
+    vorname.addEventListener('input', function() {
+        if (this.value.trim() === '') {
+            this.setCustomValidity('Bitte geben Sie Ihren Vornamen ein!');
+        } else {
+            this.setCustomValidity('');
+        }
+    }, false);
+
+
 })();
